@@ -11,12 +11,22 @@ def home():
 		return render_template("home.html")
 	else:
 		birth_month = request.form['birth_month']
-		return redirect(url_for('fortune', month_name=birth_month))
+		name = request.form['name']
+		zodiac_sign = request.form['zodiac']
+		return redirect(url_for('fortune', month_name=birth_month, his_name=name, zodiac=zodiac_sign))
 
 
-@app.route("/fortune/<month_name>", methods=['GET','POST'])
-def fortune(month_name):
-	users_fortune = fortunes[(len(month_name) - 1) % len(fortunes)]
+@app.route("/fortune/<month_name>/<his_name>/<zodiac>", methods=['GET','POST'])
+def fortune(month_name, his_name, zodiac):
+	ascii_value = 0
+	for letter in month_name:
+		ascii_value += ord(letter)
+	for letter in his_name:
+		ascii_value += ord(letter)
+	for letter in zodiac:
+		ascii_value += ord(letter)
+
+	users_fortune = fortunes[(ascii_value - 1) % 10]
 	return render_template("fortune.html", fortune = users_fortune)
 
 if __name__ == "__main__":
