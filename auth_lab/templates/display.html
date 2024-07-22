@@ -3,7 +3,7 @@
 	<h1>All quotes</h1>
 	<ul>
 		{% for i in quotes %}
-		<p>{{i}}</p>
+		<p>{{quotes[i]["said_by"]}} -:- {{quotes[i]["text"]}}</p>
 		{% endfor %}
 	</ul>
 </body>
