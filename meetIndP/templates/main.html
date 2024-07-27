@@ -1,21 +1,27 @@
 <html>
 <head>
 </head>
+<style>
+    body {background-image: url("https://www.kwunion.com/wp-content/uploads/3e5250_998016ec43cc48daa1b1ef3df4d171a8.jpg"); background-size: cover}
+    h1 {color: red; text-align: center}
+    p {text-align: center; color: blue}
+    form {text-align: center}
+</style>
 <body>
 <h1>{{name}} welcome to my karate learning website!</h1>
 <p>Choose what do you want to learn today:</p><br>
 <form action="/main_page" method="POST">
     <input type="radio" id="kata" name="users_choice" value="kata">
-    <label for="kata">Kata</label><br>
+    <label for="kata">Kata</label>
     <input type="radio" id="kumite" name="users_choice" value="kumite">
-    <label for="kumite">Kumite</label><br>
+    <label for="kumite">Kumite</label>
     <input type="radio" name="users_choice" id="PE" value="PE">
     <label for="PE">Physical education</label><br>
     <input type="submit" value="submit">
 </form>
 <p>If you want to give feedback <a href="/feedback">click here</a></p>
 <p>If you want to learn about this website <a href="/about">click here!</a></p>
-<a href="/signout">signout</a>
+<p><a href="/signout">signout</a></p>
 
 </body>
 </html>

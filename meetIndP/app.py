@@ -34,8 +34,8 @@ def signup():
             db.child("Users").child(user_id).set(user_dict)
             login_session['user'] = user
             return redirect(url_for('main_page'))
-        except:
-            return "ERROR user already exists"
+        except Exception as e:
+            return str(e)
     else:
         return render_template('signup.html')
 
